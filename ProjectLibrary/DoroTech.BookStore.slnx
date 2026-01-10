@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="DoroTech.BookStore.API/DoroTech.BookStore.API.csproj" />
+  <Project Path="DoroTech.BookStore.Application/DoroTech.BookStore.Application.csproj" />
+  <Project Path="DoroTech.BookStore.Domain/DoroTech.BookStore.Domain.csproj" />
+  <Project Path="DoroTech.BookStore.Infrastructure/DoroTech.BookStore.Infrastructure.csproj" />
+</Solution>
