@@ -6,6 +6,10 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<BookService>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddDbContext<BookStoreDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // JWT 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
