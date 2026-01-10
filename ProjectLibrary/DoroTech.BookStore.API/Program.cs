@@ -5,13 +5,9 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// =======================
-// SERVICES
-// =======================
-
 builder.Services.AddControllers();
 
-// JWT Authentication
+// JWT 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -32,7 +28,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 // Swagger + JWT
 builder.Services.AddSwaggerGen(c =>
 {
-    c.EnableAnnotations();
+    c.EnableAnnotations(); //anotações no schema do swagger
     c.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "DoroTech BookStore API",
@@ -66,10 +62,6 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
-
-// =======================
-// PIPELINE
-// =======================
 
 app.UseSwagger();
 app.UseSwaggerUI();
