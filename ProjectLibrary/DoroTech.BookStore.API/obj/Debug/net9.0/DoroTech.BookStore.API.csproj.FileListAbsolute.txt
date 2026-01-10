@@ -35,6 +35,7 @@
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/bin/Debug/net9.0/Microsoft.SqlServer.Server.dll
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/bin/Debug/net9.0/Microsoft.Win32.SystemEvents.dll
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/bin/Debug/net9.0/Mono.TextTemplating.dll
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/bin/Debug/net9.0/Swashbuckle.AspNetCore.Annotations.dll
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
