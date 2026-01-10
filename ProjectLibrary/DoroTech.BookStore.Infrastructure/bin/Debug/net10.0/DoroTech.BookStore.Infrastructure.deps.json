@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "DoroTech.BookStore.Infrastructure/1.0.0": {
+        "runtime": {
+          "DoroTech.BookStore.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DoroTech.BookStore.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
