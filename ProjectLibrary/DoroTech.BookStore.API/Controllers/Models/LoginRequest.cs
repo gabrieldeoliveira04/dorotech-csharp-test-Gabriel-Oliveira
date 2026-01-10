@@ -1,7 +1,16 @@
-namespace DoroTech.BookStore.API.Controllers.Models;
+using System.ComponentModel.DataAnnotations;
+using Swashbuckle.AspNetCore.Annotations;
 
-public class LoginRequest
+namespace DoroTech.BookStore.API.Models
 {
-    public string Username { get; set; } = string.Empty;
-    public string Password { get; set; } = string.Empty;
+    public class LoginRequest
+    {
+        [Required]
+        [SwaggerSchema(Example = "admin")]
+        public string Username { get; set; } = string.Empty;
+
+        [Required]
+        [SwaggerSchema(Example = "123456")]
+        public string Password { get; set; } = string.Empty;
+    }
 }

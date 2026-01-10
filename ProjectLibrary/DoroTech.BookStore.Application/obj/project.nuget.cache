@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "cm4sdH0w0oo=",
+  "dgSpecHash": "U9T0+8UhWhU=",
   "success": true,
   "projectFilePath": "/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Application/DoroTech.BookStore.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/codespace/.nuget/packages/microsoft.netcore.app.ref/9.0.11/microsoft.netcore.app.ref.9.0.11.nupkg.sha512",
+    "/home/codespace/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.11/microsoft.aspnetcore.app.ref.9.0.11.nupkg.sha512"
+  ],
   "logs": []
 }

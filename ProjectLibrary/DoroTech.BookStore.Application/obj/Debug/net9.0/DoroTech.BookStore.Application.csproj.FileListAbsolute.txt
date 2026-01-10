@@ -1,0 +1,12 @@
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Application/bin/Debug/net9.0/DoroTech.BookStore.Application.deps.json
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Application/bin/Debug/net9.0/DoroTech.BookStore.Application.dll
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Application/bin/Debug/net9.0/DoroTech.BookStore.Application.pdb
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Application/obj/Debug/net9.0/DoroTech.BookStore.Application.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Application/obj/Debug/net9.0/DoroTech.BookStore.Application.AssemblyInfoInputs.cache
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Application/obj/Debug/net9.0/DoroTech.BookStore.Application.AssemblyInfo.cs
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Application/obj/Debug/net9.0/DoroTech.BookStore.Application.csproj.CoreCompileInputs.cache
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Application/obj/Debug/net9.0/DoroTech.BookStore.Application.sourcelink.json
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Application/obj/Debug/net9.0/DoroTech.BookStore.Application.dll
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Application/obj/Debug/net9.0/refint/DoroTech.BookStore.Application.dll
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Application/obj/Debug/net9.0/DoroTech.BookStore.Application.pdb
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Application/obj/Debug/net9.0/ref/DoroTech.BookStore.Application.dll

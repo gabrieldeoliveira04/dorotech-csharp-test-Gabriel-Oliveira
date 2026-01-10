@@ -1,9 +1,0 @@
-/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/obj/Debug/net10.0/DoroTech.BookStore.API.csproj.AssemblyReference.cache
-/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/obj/Debug/net10.0/rpswa.dswa.cache.json
-/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/obj/Debug/net10.0/DoroTech.BookStore.API.GeneratedMSBuildEditorConfig.editorconfig
-/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/obj/Debug/net10.0/DoroTech.BookStore.API.AssemblyInfoInputs.cache
-/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/obj/Debug/net10.0/DoroTech.BookStore.API.AssemblyInfo.cs
-/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/obj/Debug/net10.0/DoroTech.BookStore.API.csproj.CoreCompileInputs.cache
-/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/obj/Debug/net10.0/DoroTech.BookStore.API.MvcApplicationPartsAssemblyInfo.cs
-/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/obj/Debug/net10.0/DoroTech.BookStore.API.MvcApplicationPartsAssemblyInfo.cache
-/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/obj/Debug/net10.0/DoroTech.BookStore.API.sourcelink.json
