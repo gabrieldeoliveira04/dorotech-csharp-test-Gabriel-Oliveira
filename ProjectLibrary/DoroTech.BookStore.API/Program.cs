@@ -1,12 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using DoroTech.BookStore.Application.Services;
-using DoroTech.BookStore.Application.Interfaces;
 using DoroTech.BookStore.Infrastructure.Repositories;
 using DoroTech.BookStore.Infrastructure.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using DoroTech.BookStore.Domain.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +14,12 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<BookService>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddDbContext<BookStoreDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlite(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        b => b.MigrationsAssembly("DoroTech.BookStore.Infrastructure")
+    )
+);
+
 
 // JWT 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

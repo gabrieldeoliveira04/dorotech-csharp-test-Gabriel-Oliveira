@@ -1,4 +1,4 @@
-using DoroTech.BookStore.Application.Interfaces;
+using DoroTech.BookStore.Domain.Interfaces;
 using DoroTech.BookStore.Domain.Entities;
 using DoroTech.BookStore.Application.DTOs;
 
@@ -37,6 +37,16 @@ namespace DoroTech.BookStore.Application.Services
                 ? null
                 : new BookResponse(book.Id, book.Title, book.Author, book.Price, book.Stock);
         }
+
+        public async Task<BookResponse?> GetByTitleAsync(string title)
+{
+    var book = await _repository.GetByTitleAsync(title);
+
+    return book == null
+        ? null
+        : new BookResponse(book.Id, book.Title, book.Author, book.Price, book.Stock);
+}
+
         public async Task CreateAsync(string title, string author, decimal price, int stock)
         {
             var existing = await _repository.GetByTitleAsync(title);

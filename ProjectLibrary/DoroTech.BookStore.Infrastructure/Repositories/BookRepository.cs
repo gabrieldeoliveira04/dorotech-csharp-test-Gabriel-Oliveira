@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using DoroTech.BookStore.Application.Interfaces;
+using DoroTech.BookStore.Domain.Interfaces;
 using DoroTech.BookStore.Domain.Entities;
 using DoroTech.BookStore.Infrastructure.Data;
 

@@ -4,8 +4,8 @@ namespace DoroTech.BookStore.Domain.Entities
     {
         public Guid Id { get; private set; }
 
-        public string Title { get; private set; }
-        public string Author { get; private set; }
+        public string Title { get; private set; } = null!;
+        public string Author { get; private set; } = null!;
         public decimal Price { get; private set; }
         public int Stock { get; private set; }
 

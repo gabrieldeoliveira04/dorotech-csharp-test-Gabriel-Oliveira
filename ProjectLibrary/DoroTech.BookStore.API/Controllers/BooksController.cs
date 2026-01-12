@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using DoroTech.BookStore.Application.Services;
 using DoroTech.BookStore.Domain.Entities;
+using DoroTech.BookStore.Application.DTOs;
 
 namespace DoroTech.BookStore.API.Controllers
 {
@@ -16,37 +17,32 @@ namespace DoroTech.BookStore.API.Controllers
             _service = service;
         }
 
-        /// <summary>
-        /// Lista todos os livros (acesso público)
-        /// </summary>
         [HttpGet]
         [AllowAnonymous]
-        [ProducesResponseType(typeof(IEnumerable<Book>), 200)]
+        [ProducesResponseType(typeof(IEnumerable<BookResponse>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll(
-            [FromQuery] int page = 1,
-            [FromQuery] int pageSize = 10,
-            [FromQuery] string? title = null)
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 10,
+        [FromQuery] string? title = null)
         {
-            var books = await _service.GetAllAsync(page, pageSize, title);
-            return Ok(books);
+            return Ok(await _service.GetAllAsync(page, pageSize, title));
         }
 
-        /// <summary>
-        /// Obtém um livro por ID (acesso público)
-        /// </summary>
-        [HttpGet("{id}")]
+
+        [HttpGet("{idOrTitle}")]
         [AllowAnonymous]
-        [ProducesResponseType(typeof(Book), 200)]
-        [ProducesResponseType(404)]
-        public async Task<IActionResult> GetById(Guid id)
+        [ProducesResponseType(typeof(BookResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetByIdOrTitle(string idOrTitle)
         {
-            var book = await _service.GetByIdAsync(id);
+            var book = Guid.TryParse(idOrTitle, out var id)
+                ? await _service.GetByIdAsync(id)
+                : await _service.GetByTitleAsync(idOrTitle);
+
             return book == null ? NotFound() : Ok(book);
         }
 
-        /// <summary>
-        /// Cria um novo livro (somente Admin)
-        /// </summary>
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(201)]
@@ -68,51 +64,45 @@ namespace DoroTech.BookStore.API.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
-        /// <summary>
-        /// Atualiza um livro (somente Admin)
-        /// </summary>
-        [HttpPut("{id}")]
+        
         [Authorize(Roles = "Admin")]
-        [ProducesResponseType(204)]
-        [ProducesResponseType(404)]
-        public async Task<IActionResult> Update(Guid id, [FromBody] Book request)
+        [HttpPut("{idOrTitle}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Update(string idOrTitle, [FromBody] BookRequest request)
         {
-            try
-            {
-                await _service.UpdateAsync(
-                    id,
-                    request.Title,
-                    request.Author,
-                    request.Price,
-                    request.Stock);
+            var book = Guid.TryParse(idOrTitle, out var id)
+                ? await _service.GetByIdAsync(id)
+                : await _service.GetByTitleAsync(idOrTitle);
 
-                return NoContent();
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(ex.Message);
-            }
+            if (book == null)
+                return NotFound("Livro não encontrado.");
+
+            await _service.UpdateAsync(
+                book.Id,
+                request.Title,
+                request.Author,
+                request.Price,
+                request.Stock
+            );
+
+            return NoContent();
         }
 
-        /// <summary>
-        /// Remove um livro (somente Admin)
-        /// </summary>
-        [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")]
-        [ProducesResponseType(204)]
-        [ProducesResponseType(404)]
-        public async Task<IActionResult> Delete(Guid id)
+        [HttpDelete("{idOrTitle}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete(string idOrTitle)
         {
-            try
-            {
-                await _service.DeleteAsync(id);
-                return NoContent();
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(ex.Message);
-            }
+            var book = Guid.TryParse(idOrTitle, out var id)
+                ? await _service.GetByIdAsync(id)
+                : await _service.GetByTitleAsync(idOrTitle);
+
+            if (book == null)
+                return NotFound("Livro não encontrado.");
+
+            await _service.DeleteAsync(book.Id);
+            return NoContent();
         }
+
     }
 }
