@@ -17,91 +17,85 @@ namespace DoroTech.BookStore.API.Controllers
             _service = service;
         }
 
+        //Lista todos os livros com paginação e filtro
         [HttpGet]
         [AllowAnonymous]
         [ProducesResponseType(typeof(IEnumerable<BookResponse>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll(
-        [FromQuery] int page = 1,
-        [FromQuery] int pageSize = 10,
-        [FromQuery] string? title = null)
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 10,
+            [FromQuery] string? title = null)
         {
-            return Ok(await _service.GetAllAsync(page, pageSize, title));
+            var books = await _service.GetAllAsync(page, pageSize, title);
+            return Ok(books);
         }
-
-
-        [HttpGet("{idOrTitle}")]
+        //filtra o livro pelo título
+        [HttpGet("by-title/{title}")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(BookResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetByIdOrTitle(string idOrTitle)
+        public async Task<IActionResult> GetByTitle(string title)
         {
-            var book = Guid.TryParse(idOrTitle, out var id)
-                ? await _service.GetByIdAsync(id)
-                : await _service.GetByTitleAsync(idOrTitle);
-
-            return book == null ? NotFound() : Ok(book);
+            var book = await _service.GetByTitleAsync(title);
+            return book is null ? NotFound() : Ok(book);
         }
 
-        [Authorize(Roles = "Admin")]
+
+        //filtra o livro pelo ID
+        [HttpGet("{id:guid}")]
+        [AllowAnonymous]
+        [ProducesResponseType(typeof(BookResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var book = await _service.GetByIdAsync(id);
+            return book is null ? NotFound() : Ok(book);
+        }
+
+        //Cria um novo livro(somente admin)
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        [ProducesResponseType(201)]
-        [ProducesResponseType(400)]
-        public async Task<IActionResult> Create([FromBody] Book request)
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Create([FromBody] BookRequest request)
         {
-            try
-            {
-                await _service.CreateAsync(
-                    request.Title,
-                    request.Author,
-                    request.Price,
-                    request.Stock);
-
-                return CreatedAtAction(nameof(GetAll), null);
-            }
-            catch (InvalidOperationException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-        
-        [Authorize(Roles = "Admin")]
-        [HttpPut("{idOrTitle}")]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Update(string idOrTitle, [FromBody] BookRequest request)
-        {
-            var book = Guid.TryParse(idOrTitle, out var id)
-                ? await _service.GetByIdAsync(id)
-                : await _service.GetByTitleAsync(idOrTitle);
-
-            if (book == null)
-                return NotFound("Livro não encontrado.");
-
-            await _service.UpdateAsync(
-                book.Id,
+            var id = await _service.CreateAsync(
                 request.Title,
                 request.Author,
                 request.Price,
                 request.Stock
             );
 
-            return NoContent();
+            return CreatedAtAction(nameof(GetById), new { id }, null);
         }
 
+        //Atualiza um livro existente (somente admin)
+        [HttpPut("{id:guid}")]
         [Authorize(Roles = "Admin")]
-        [HttpDelete("{idOrTitle}")]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Delete(string idOrTitle)
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Update(Guid id, [FromBody] BookRequest request)
         {
-            var book = Guid.TryParse(idOrTitle, out var id)
-                ? await _service.GetByIdAsync(id)
-                : await _service.GetByTitleAsync(idOrTitle);
+            var updated = await _service.UpdateAsync(
+                id,
+                request.Title,
+                request.Author,
+                request.Price,
+                request.Stock
+            );
 
-            if (book == null)
-                return NotFound("Livro não encontrado.");
+            return updated ? NoContent() : NotFound("Livro não encontrado.");
+        }
 
-            await _service.DeleteAsync(book.Id);
-            return NoContent();
+        //Deleta um livro pelo ID (somente admin)
+        [HttpDelete("{id:guid}")]
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var deleted = await _service.DeleteAsync(id);
+            return deleted ? NoContent() : NotFound("Livro não encontrado.");
         }
 
     }
