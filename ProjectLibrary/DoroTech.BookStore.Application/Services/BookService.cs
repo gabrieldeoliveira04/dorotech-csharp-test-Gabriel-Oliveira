@@ -1,5 +1,6 @@
 using DoroTech.BookStore.Application.Interfaces;
 using DoroTech.BookStore.Domain.Entities;
+using DoroTech.BookStore.Application.DTOs;
 
 namespace DoroTech.BookStore.Application.Services
 {
@@ -12,19 +13,30 @@ namespace DoroTech.BookStore.Application.Services
             _repository = repository;
         }
 
-        public async Task<IEnumerable<Book>> GetAllAsync(
-            int page,
-            int pageSize,
-            string? title)
+        public async Task<IEnumerable<BookResponse>> GetAllAsync(
+    int page,
+    int pageSize,
+    string? title)
         {
-            return await _repository.GetAllAsync(page, pageSize, title);
+            var books = await _repository.GetAllAsync(page, pageSize, title);
+
+            return books.Select(b => new BookResponse(
+                b.Id,
+                b.Title,
+                b.Author,
+                b.Price,
+                b.Stock
+            ));
         }
 
-        public async Task<Book?> GetByIdAsync(Guid id)
+        public async Task<BookResponse?> GetByIdAsync(Guid id)
         {
-            return await _repository.GetByIdAsync(id);
-        }
+            var book = await _repository.GetByIdAsync(id);
 
+            return book == null
+                ? null
+                : new BookResponse(book.Id, book.Title, book.Author, book.Price, book.Stock);
+        }
         public async Task CreateAsync(string title, string author, decimal price, int stock)
         {
             var existing = await _repository.GetByTitleAsync(title);
