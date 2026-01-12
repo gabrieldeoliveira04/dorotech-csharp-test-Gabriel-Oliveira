@@ -13,10 +13,11 @@ namespace DoroTech.BookStore.Application.Services
             _repository = repository;
         }
 
+        // Lista livros com paginação e filtro por título
         public async Task<IEnumerable<BookResponse>> GetAllAsync(
-    int page,
-    int pageSize,
-    string? title)
+            int page,
+            int pageSize,
+            string? title)
         {
             var books = await _repository.GetAllAsync(page, pageSize, title);
 
@@ -29,25 +30,44 @@ namespace DoroTech.BookStore.Application.Services
             ));
         }
 
+        // Busca por ID
         public async Task<BookResponse?> GetByIdAsync(Guid id)
         {
             var book = await _repository.GetByIdAsync(id);
 
-            return book == null
+            return book is null
                 ? null
-                : new BookResponse(book.Id, book.Title, book.Author, book.Price, book.Stock);
+                : new BookResponse(
+                    book.Id,
+                    book.Title,
+                    book.Author,
+                    book.Price,
+                    book.Stock
+                );
         }
 
+        // Busca por título
         public async Task<BookResponse?> GetByTitleAsync(string title)
-{
-    var book = await _repository.GetByTitleAsync(title);
+        {
+            var book = await _repository.GetByTitleAsync(title);
 
-    return book == null
-        ? null
-        : new BookResponse(book.Id, book.Title, book.Author, book.Price, book.Stock);
-}
+            return book is null
+                ? null
+                : new BookResponse(
+                    book.Id,
+                    book.Title,
+                    book.Author,
+                    book.Price,
+                    book.Stock
+                );
+        }
 
-        public async Task CreateAsync(string title, string author, decimal price, int stock)
+        // Criação de livro (retorna o ID)
+        public async Task<Guid> CreateAsync(
+            string title,
+            string author,
+            decimal price,
+            int stock)
         {
             var existing = await _repository.GetByTitleAsync(title);
 
@@ -56,27 +76,40 @@ namespace DoroTech.BookStore.Application.Services
 
             var book = new Book(title, author, price, stock);
             await _repository.AddAsync(book);
+
+            return book.Id;
         }
 
-        public async Task UpdateAsync(Guid id, string title, string author, decimal price, int stock)
+        // Atualização de livro (true se atualizado, false se não encontrado)
+        public async Task<bool> UpdateAsync(
+            Guid id,
+            string title,
+            string author,
+            decimal price,
+            int stock)
         {
             var book = await _repository.GetByIdAsync(id);
 
-            if (book == null)
-                throw new KeyNotFoundException("Livro não encontrado.");
+            if (book is null)
+                return false;
 
             book.Update(title, author, price, stock);
             await _repository.UpdateAsync(book);
+
+            return true;
         }
 
-        public async Task DeleteAsync(Guid id)
+        // Exclusão de livro (true se excluído, false se não encontrado)
+        public async Task<bool> DeleteAsync(Guid id)
         {
             var book = await _repository.GetByIdAsync(id);
 
-            if (book == null)
-                throw new KeyNotFoundException("Livro não encontrado.");
+            if (book is null)
+                return false;
 
             await _repository.DeleteAsync(book);
+            return true;
         }
     }
 }
+
