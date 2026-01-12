@@ -13,7 +13,7 @@ namespace DoroTech.BookStore.Application.Services
             _repository = repository;
         }
 
-        // Lista livros com paginação e filtro por título
+        // Lista livros com paginação e filtro por título (parcial, case-insensitive)
         public async Task<IEnumerable<BookResponse>> GetAllAsync(
             int page,
             int pageSize,
@@ -21,48 +21,27 @@ namespace DoroTech.BookStore.Application.Services
         {
             var books = await _repository.GetAllAsync(page, pageSize, title);
 
-            return books.Select(b => new BookResponse(
-                b.Id,
-                b.Title,
-                b.Author,
-                b.Price,
-                b.Stock
-            ));
+            return books.Select(MapToResponse);
         }
 
         // Busca por ID
         public async Task<BookResponse?> GetByIdAsync(Guid id)
         {
             var book = await _repository.GetByIdAsync(id);
-
-            return book is null
-                ? null
-                : new BookResponse(
-                    book.Id,
-                    book.Title,
-                    book.Author,
-                    book.Price,
-                    book.Stock
-                );
+            return book == null ? null : MapToResponse(book);
         }
 
-        // Busca por título
+        // Busca por título (parcial)
         public async Task<BookResponse?> GetByTitleAsync(string title)
         {
-            var book = await _repository.GetByTitleAsync(title);
+            if (string.IsNullOrWhiteSpace(title))
+                return null;
 
-            return book is null
-                ? null
-                : new BookResponse(
-                    book.Id,
-                    book.Title,
-                    book.Author,
-                    book.Price,
-                    book.Stock
-                );
+            var book = await _repository.GetByTitleAsync(title);
+            return book == null ? null : MapToResponse(book);
         }
 
-        // Criação de livro (retorna o ID)
+        // Criação de livro
         public async Task<Guid> CreateAsync(
             string title,
             string author,
@@ -80,7 +59,7 @@ namespace DoroTech.BookStore.Application.Services
             return book.Id;
         }
 
-        // Atualização de livro (true se atualizado, false se não encontrado)
+        // Atualização
         public async Task<bool> UpdateAsync(
             Guid id,
             string title,
@@ -90,7 +69,7 @@ namespace DoroTech.BookStore.Application.Services
         {
             var book = await _repository.GetByIdAsync(id);
 
-            if (book is null)
+            if (book == null)
                 return false;
 
             book.Update(title, author, price, stock);
@@ -99,17 +78,30 @@ namespace DoroTech.BookStore.Application.Services
             return true;
         }
 
-        // Exclusão de livro (true se excluído, false se não encontrado)
+        // Exclusão
         public async Task<bool> DeleteAsync(Guid id)
         {
             var book = await _repository.GetByIdAsync(id);
 
-            if (book is null)
+            if (book == null)
                 return false;
 
             await _repository.DeleteAsync(book);
             return true;
         }
+
+        // Mapper centralizado (boa prática)
+        private static BookResponse MapToResponse(Book book)
+        {
+            return new BookResponse(
+                book.Id,
+                book.Title,
+                book.Author,
+                book.Price,
+                book.Stock
+            );
+        }
     }
 }
+
 

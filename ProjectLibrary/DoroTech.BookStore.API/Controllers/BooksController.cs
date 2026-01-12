@@ -29,17 +29,6 @@ namespace DoroTech.BookStore.API.Controllers
             var books = await _service.GetAllAsync(page, pageSize, title);
             return Ok(books);
         }
-        //filtra o livro pelo título
-        [HttpGet("by-title/{title}")]
-        [AllowAnonymous]
-        [ProducesResponseType(typeof(BookResponse), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetByTitle(string title)
-        {
-            var book = await _service.GetByTitleAsync(title);
-            return book is null ? NotFound() : Ok(book);
-        }
-
 
         //filtra o livro pelo ID
         [HttpGet("{id:guid}")]
@@ -65,6 +54,8 @@ namespace DoroTech.BookStore.API.Controllers
                 request.Price,
                 request.Stock
             );
+            if (!ModelState.IsValid)
+                return ValidationProblem(ModelState);
 
             return CreatedAtAction(nameof(GetById), new { id }, null);
         }

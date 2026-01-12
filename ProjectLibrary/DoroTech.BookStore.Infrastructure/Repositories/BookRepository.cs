@@ -14,12 +14,20 @@ namespace DoroTech.BookStore.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Book>> GetAllAsync(int page, int pageSize, string? title)
+        public async Task<IEnumerable<Book>> GetAllAsync(
+            int page,
+            int pageSize,
+            string? title)
         {
-            var query = _context.Books.AsQueryable();
+            var query = _context.Books.AsNoTracking();
 
             if (!string.IsNullOrWhiteSpace(title))
-                query = query.Where(b => b.Title.Contains(title));
+            {
+                var normalizedTitle = title.ToLower();
+
+                query = query.Where(b =>
+                    b.Title.ToLower().Contains(normalizedTitle));
+            }
 
             return await query
                 .OrderBy(b => b.Title)
@@ -28,11 +36,22 @@ namespace DoroTech.BookStore.Infrastructure.Repositories
                 .ToListAsync();
         }
 
-        public Task<Book?> GetByIdAsync(Guid id) =>
-            _context.Books.FirstOrDefaultAsync(b => b.Id == id);
+        public Task<Book?> GetByIdAsync(Guid id)
+        {
+            return _context.Books
+                .AsNoTracking()
+                .FirstOrDefaultAsync(b => b.Id == id);
+        }
 
-        public Task<Book?> GetByTitleAsync(string title) =>
-            _context.Books.FirstOrDefaultAsync(b => b.Title == title);
+        public Task<Book?> GetByTitleAsync(string title)
+        {
+            var normalizedTitle = title.ToLower();
+
+            return _context.Books
+                .AsNoTracking()
+                .FirstOrDefaultAsync(b =>
+                    b.Title.ToLower().Contains(normalizedTitle));
+        }
 
         public async Task AddAsync(Book book)
         {
@@ -53,3 +72,4 @@ namespace DoroTech.BookStore.Infrastructure.Repositories
         }
     }
 }
+
