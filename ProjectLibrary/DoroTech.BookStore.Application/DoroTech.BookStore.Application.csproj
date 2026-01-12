@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DoroTech.BookStore.Domain\DoroTech.BookStore.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
+

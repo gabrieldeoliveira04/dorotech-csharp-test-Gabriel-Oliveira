@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DoroTech.BookStore.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+652b6acacfd174f24cfcae3305208b95961fd44d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e132c39496d24186ad053ba43d586320e3a70f2c")]
 [assembly: System.Reflection.AssemblyProductAttribute("DoroTech.BookStore.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DoroTech.BookStore.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

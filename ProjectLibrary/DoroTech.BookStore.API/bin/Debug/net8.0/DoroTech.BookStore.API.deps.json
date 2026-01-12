@@ -14,8 +14,8 @@
           "Microsoft.AspNetCore.OpenApi": "8.0.0",
           "Microsoft.EntityFrameworkCore": "8.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0",
-          "Microsoft.EntityFrameworkCore.Tools": "8.0.0",
           "Swashbuckle.AspNetCore": "6.5.0",
+          "Swashbuckle.AspNetCore.Annotations": "6.5.0",
           "System.IdentityModel.Tokens.Jwt": "8.0.0"
         },
         "runtime": {
@@ -24,7 +24,7 @@
       },
       "Azure.Core/1.25.0": {
         "dependencies": {
-          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
+          "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
           "System.Memory.Data": "1.0.2"
         },
         "runtime": {
@@ -45,14 +45,6 @@
           "lib/netstandard2.0/Azure.Identity.dll": {
             "assemblyVersion": "1.7.0.0",
             "fileVersion": "1.700.22.46903"
-          }
-        }
-      },
-      "Humanizer.Core/2.14.1": {
-        "runtime": {
-          "lib/net6.0/Humanizer.dll": {
-            "assemblyVersion": "2.14.0.0",
-            "fileVersion": "2.14.1.48190"
           }
         }
       },
@@ -78,222 +70,11 @@
           }
         }
       },
-      "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+      "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
-        }
-      },
-      "Microsoft.CodeAnalysis.Common/4.5.0": {
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.CodeAnalysis.dll": {
-            "assemblyVersion": "4.5.0.0",
-            "fileVersion": "4.500.23.10905"
-          }
-        },
-        "resources": {
-          "lib/netcoreapp3.1/cs/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "cs"
-          },
-          "lib/netcoreapp3.1/de/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "de"
-          },
-          "lib/netcoreapp3.1/es/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netcoreapp3.1/fr/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/netcoreapp3.1/it/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "it"
-          },
-          "lib/netcoreapp3.1/ja/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "ja"
-          },
-          "lib/netcoreapp3.1/ko/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/netcoreapp3.1/pl/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "pl"
-          },
-          "lib/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "pt-BR"
-          },
-          "lib/netcoreapp3.1/ru/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/netcoreapp3.1/tr/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "tr"
-          },
-          "lib/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "zh-Hans"
-          },
-          "lib/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.resources.dll": {
-            "locale": "zh-Hant"
-          }
-        }
-      },
-      "Microsoft.CodeAnalysis.CSharp/4.5.0": {
-        "dependencies": {
-          "Microsoft.CodeAnalysis.Common": "4.5.0"
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.CodeAnalysis.CSharp.dll": {
-            "assemblyVersion": "4.5.0.0",
-            "fileVersion": "4.500.23.10905"
-          }
-        },
-        "resources": {
-          "lib/netcoreapp3.1/cs/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "cs"
-          },
-          "lib/netcoreapp3.1/de/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "de"
-          },
-          "lib/netcoreapp3.1/es/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netcoreapp3.1/fr/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/netcoreapp3.1/it/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "it"
-          },
-          "lib/netcoreapp3.1/ja/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "ja"
-          },
-          "lib/netcoreapp3.1/ko/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/netcoreapp3.1/pl/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "pl"
-          },
-          "lib/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "pt-BR"
-          },
-          "lib/netcoreapp3.1/ru/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/netcoreapp3.1/tr/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "tr"
-          },
-          "lib/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "zh-Hans"
-          },
-          "lib/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll": {
-            "locale": "zh-Hant"
-          }
-        }
-      },
-      "Microsoft.CodeAnalysis.CSharp.Workspaces/4.5.0": {
-        "dependencies": {
-          "Humanizer.Core": "2.14.1",
-          "Microsoft.CodeAnalysis.CSharp": "4.5.0",
-          "Microsoft.CodeAnalysis.Common": "4.5.0",
-          "Microsoft.CodeAnalysis.Workspaces.Common": "4.5.0"
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.CodeAnalysis.CSharp.Workspaces.dll": {
-            "assemblyVersion": "4.5.0.0",
-            "fileVersion": "4.500.23.10905"
-          }
-        },
-        "resources": {
-          "lib/netcoreapp3.1/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
-            "locale": "cs"
-          },
-          "lib/netcoreapp3.1/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
-            "locale": "de"
-          },
-          "lib/netcoreapp3.1/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netcoreapp3.1/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/netcoreapp3.1/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
-            "locale": "it"
-          },
-          "lib/netcoreapp3.1/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
-            "locale": "ja"
-          },
-          "lib/netcoreapp3.1/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/netcoreapp3.1/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
-            "locale": "pl"
-          },
-          "lib/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
-            "locale": "pt-BR"
-          },
-          "lib/netcoreapp3.1/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/netcoreapp3.1/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
-            "locale": "tr"
-          },
-          "lib/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
-            "locale": "zh-Hans"
-          },
-          "lib/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
-            "locale": "zh-Hant"
-          }
-        }
-      },
-      "Microsoft.CodeAnalysis.Workspaces.Common/4.5.0": {
-        "dependencies": {
-          "Humanizer.Core": "2.14.1",
-          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
-          "Microsoft.CodeAnalysis.Common": "4.5.0",
-          "System.Composition": "6.0.0"
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.CodeAnalysis.Workspaces.dll": {
-            "assemblyVersion": "4.5.0.0",
-            "fileVersion": "4.500.23.10905"
-          }
-        },
-        "resources": {
-          "lib/netcoreapp3.1/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
-            "locale": "cs"
-          },
-          "lib/netcoreapp3.1/de/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
-            "locale": "de"
-          },
-          "lib/netcoreapp3.1/es/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netcoreapp3.1/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/netcoreapp3.1/it/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
-            "locale": "it"
-          },
-          "lib/netcoreapp3.1/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
-            "locale": "ja"
-          },
-          "lib/netcoreapp3.1/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/netcoreapp3.1/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
-            "locale": "pl"
-          },
-          "lib/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
-            "locale": "pt-BR"
-          },
-          "lib/netcoreapp3.1/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/netcoreapp3.1/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
-            "locale": "tr"
-          },
-          "lib/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
-            "locale": "zh-Hans"
-          },
-          "lib/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll": {
-            "locale": "zh-Hant"
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "4.700.20.21406"
           }
         }
       },
@@ -372,21 +153,6 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Design/8.0.0": {
-        "dependencies": {
-          "Humanizer.Core": "2.14.1",
-          "Microsoft.CodeAnalysis.CSharp.Workspaces": "4.5.0",
-          "Microsoft.EntityFrameworkCore.Relational": "8.0.0",
-          "Microsoft.Extensions.DependencyModel": "8.0.0",
-          "Mono.TextTemplating": "2.2.1"
-        },
-        "runtime": {
-          "lib/net8.0/Microsoft.EntityFrameworkCore.Design.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
-          }
-        }
-      },
       "Microsoft.EntityFrameworkCore.Relational/8.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.0"
@@ -405,19 +171,6 @@
         },
         "runtime": {
           "lib/net8.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
-          }
-        }
-      },
-      "Microsoft.EntityFrameworkCore.Tools/8.0.0": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": "8.0.0"
-        }
-      },
-      "Microsoft.Extensions.DependencyModel/8.0.0": {
-        "runtime": {
-          "lib/net8.0/Microsoft.Extensions.DependencyModel.dll": {
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.23.53103"
           }
@@ -543,22 +296,22 @@
           }
         }
       },
-      "Mono.TextTemplating/2.2.1": {
-        "dependencies": {
-          "System.CodeDom": "4.4.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Mono.TextTemplating.dll": {
-            "assemblyVersion": "2.2.0.0",
-            "fileVersion": "2.2.1.1"
-          }
-        }
-      },
       "Swashbuckle.AspNetCore/6.5.0": {
         "dependencies": {
           "Swashbuckle.AspNetCore.Swagger": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerUI": "6.5.0"
+        }
+      },
+      "Swashbuckle.AspNetCore.Annotations/6.5.0": {
+        "dependencies": {
+          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0"
+        },
+        "runtime": {
+          "lib/net7.0/Swashbuckle.AspNetCore.Annotations.dll": {
+            "assemblyVersion": "6.5.0.0",
+            "fileVersion": "6.5.0.0"
+          }
         }
       },
       "Swashbuckle.AspNetCore.Swagger/6.5.0": {
@@ -588,74 +341,6 @@
           "lib/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
             "assemblyVersion": "6.5.0.0",
             "fileVersion": "6.5.0.0"
-          }
-        }
-      },
-      "System.CodeDom/4.4.0": {
-        "runtime": {
-          "lib/netstandard2.0/System.CodeDom.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.6.25519.3"
-          }
-        }
-      },
-      "System.Composition/6.0.0": {
-        "dependencies": {
-          "System.Composition.AttributedModel": "6.0.0",
-          "System.Composition.Convention": "6.0.0",
-          "System.Composition.Hosting": "6.0.0",
-          "System.Composition.Runtime": "6.0.0",
-          "System.Composition.TypedParts": "6.0.0"
-        }
-      },
-      "System.Composition.AttributedModel/6.0.0": {
-        "runtime": {
-          "lib/net6.0/System.Composition.AttributedModel.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
-        }
-      },
-      "System.Composition.Convention/6.0.0": {
-        "dependencies": {
-          "System.Composition.AttributedModel": "6.0.0"
-        },
-        "runtime": {
-          "lib/net6.0/System.Composition.Convention.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
-        }
-      },
-      "System.Composition.Hosting/6.0.0": {
-        "dependencies": {
-          "System.Composition.Runtime": "6.0.0"
-        },
-        "runtime": {
-          "lib/net6.0/System.Composition.Hosting.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
-        }
-      },
-      "System.Composition.Runtime/6.0.0": {
-        "runtime": {
-          "lib/net6.0/System.Composition.Runtime.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
-        }
-      },
-      "System.Composition.TypedParts/6.0.0": {
-        "dependencies": {
-          "System.Composition.AttributedModel": "6.0.0",
-          "System.Composition.Hosting": "6.0.0",
-          "System.Composition.Runtime": "6.0.0"
-        },
-        "runtime": {
-          "lib/net6.0/System.Composition.TypedParts.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
           }
         }
       },
@@ -782,6 +467,9 @@
         }
       },
       "DoroTech.BookStore.Application/1.0.0": {
+        "dependencies": {
+          "DoroTech.BookStore.Domain": "1.0.0"
+        },
         "runtime": {
           "DoroTech.BookStore.Application.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -789,7 +477,21 @@
           }
         }
       },
+      "DoroTech.BookStore.Domain/1.0.0": {
+        "runtime": {
+          "DoroTech.BookStore.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "DoroTech.BookStore.Infrastructure/1.0.0": {
+        "dependencies": {
+          "DoroTech.BookStore.Application": "1.0.0",
+          "DoroTech.BookStore.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "8.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0"
+        },
         "runtime": {
           "DoroTech.BookStore.Infrastructure.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -819,13 +521,6 @@
       "path": "azure.identity/1.7.0",
       "hashPath": "azure.identity.1.7.0.nupkg.sha512"
     },
-    "Humanizer.Core/2.14.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
-      "path": "humanizer.core/2.14.1",
-      "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
-    },
     "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.0": {
       "type": "package",
       "serviceable": true,
@@ -840,40 +535,12 @@
       "path": "microsoft.aspnetcore.openapi/8.0.0",
       "hashPath": "microsoft.aspnetcore.openapi.8.0.0.nupkg.sha512"
     },
-    "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+    "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UcSjPsst+DfAdJGVDsu346FX0ci0ah+lw3WRtn18NUwEqRt70HaOQ7lI72vy3+1LxtqI3T5GWwV39rQSrCzAeg==",
-      "path": "microsoft.bcl.asyncinterfaces/6.0.0",
-      "hashPath": "microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512"
-    },
-    "Microsoft.CodeAnalysis.Common/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-lwAbIZNdnY0SUNoDmZHkVUwLO8UyNnyyh1t/4XsbFxi4Ounb3xszIYZaWhyj5ZjyfcwqwmtMbE7fUTVCqQEIdQ==",
-      "path": "microsoft.codeanalysis.common/4.5.0",
-      "hashPath": "microsoft.codeanalysis.common.4.5.0.nupkg.sha512"
-    },
-    "Microsoft.CodeAnalysis.CSharp/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-cM59oMKAOxvdv76bdmaKPy5hfj+oR+zxikWoueEB7CwTko7mt9sVKZI8Qxlov0C/LuKEG+WQwifepqL3vuTiBQ==",
-      "path": "microsoft.codeanalysis.csharp/4.5.0",
-      "hashPath": "microsoft.codeanalysis.csharp.4.5.0.nupkg.sha512"
-    },
-    "Microsoft.CodeAnalysis.CSharp.Workspaces/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-h74wTpmGOp4yS4hj+EvNzEiPgg/KVs2wmSfTZ81upJZOtPkJsVkgfsgtxxqmAeapjT/vLKfmYV0bS8n5MNVP+g==",
-      "path": "microsoft.codeanalysis.csharp.workspaces/4.5.0",
-      "hashPath": "microsoft.codeanalysis.csharp.workspaces.4.5.0.nupkg.sha512"
-    },
-    "Microsoft.CodeAnalysis.Workspaces.Common/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-l4dDRmGELXG72XZaonnOeORyD/T5RpEu5LGHOUIhnv+MmUWDY/m1kWXGwtcgQ5CJ5ynkFiRnIYzTKXYjUs7rbw==",
-      "path": "microsoft.codeanalysis.workspaces.common/4.5.0",
-      "hashPath": "microsoft.codeanalysis.workspaces.common.4.5.0.nupkg.sha512"
+      "sha512": "sha512-yuvf07qFWFqtK3P/MRkEKLhn5r2UbSpVueRziSqj0yJQIKFwG1pq9mOayK3zE5qZCTs0CbrwL9M6R8VwqyGy2w==",
+      "path": "microsoft.bcl.asyncinterfaces/1.1.1",
+      "hashPath": "microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512"
     },
     "Microsoft.Data.SqlClient/5.1.1": {
       "type": "package",
@@ -903,13 +570,6 @@
       "path": "microsoft.entityframeworkcore.abstractions/8.0.0",
       "hashPath": "microsoft.entityframeworkcore.abstractions.8.0.0.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Design/8.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-94reKYu63jg4O75UI3LMJHwOSi8tQ6IfubiZhdnSsWcgtmAuF8OyLfjK/MIxuvaQRJZAF6E747FIuxjOtb8/og==",
-      "path": "microsoft.entityframeworkcore.design/8.0.0",
-      "hashPath": "microsoft.entityframeworkcore.design.8.0.0.nupkg.sha512"
-    },
     "Microsoft.EntityFrameworkCore.Relational/8.0.0": {
       "type": "package",
       "serviceable": true,
@@ -923,20 +583,6 @@
       "sha512": "sha512-GeOmafQn64HyQtYcI/Omv/D/YVHd1zEkWbP3zNQu4oC+usE9K0qOp0R8KgWWFEf8BU4tXuYbok40W0SjfbaK/A==",
       "path": "microsoft.entityframeworkcore.sqlserver/8.0.0",
       "hashPath": "microsoft.entityframeworkcore.sqlserver.8.0.0.nupkg.sha512"
-    },
-    "Microsoft.EntityFrameworkCore.Tools/8.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-zRdaXiiB1gEA0b+AJTd2+drh78gkEA4HyZ1vqNZrKq4xwW8WwavSiQsoeb1UsIMZkocLMBbhQYWClkZzuTKEgQ==",
-      "path": "microsoft.entityframeworkcore.tools/8.0.0",
-      "hashPath": "microsoft.entityframeworkcore.tools.8.0.0.nupkg.sha512"
-    },
-    "Microsoft.Extensions.DependencyModel/8.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-NSmDw3K0ozNDgShSIpsZcbFIzBX4w28nDag+TfaQujkXGazBm+lid5onlWoCBy4VsLxqnnKjEBbGSJVWJMf43g==",
-      "path": "microsoft.extensions.dependencymodel/8.0.0",
-      "hashPath": "microsoft.extensions.dependencymodel.8.0.0.nupkg.sha512"
     },
     "Microsoft.Identity.Client/4.47.2": {
       "type": "package",
@@ -1015,19 +661,19 @@
       "path": "microsoft.win32.systemevents/6.0.0",
       "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
     },
-    "Mono.TextTemplating/2.2.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-KZYeKBET/2Z0gY1WlTAK7+RHTl7GSbtvTLDXEZZojUdAPqpQNDL6tHv7VUpqfX5VEOh+uRGKaZXkuD253nEOBQ==",
-      "path": "mono.texttemplating/2.2.1",
-      "hashPath": "mono.texttemplating.2.2.1.nupkg.sha512"
-    },
     "Swashbuckle.AspNetCore/6.5.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-FK05XokgjgwlCI6wCT+D4/abtQkL1X1/B9Oas6uIwHFmYrIO9WUD5aLC9IzMs9GnHfUXOtXZ2S43gN1mhs5+aA==",
       "path": "swashbuckle.aspnetcore/6.5.0",
       "hashPath": "swashbuckle.aspnetcore.6.5.0.nupkg.sha512"
+    },
+    "Swashbuckle.AspNetCore.Annotations/6.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EcHd1z2pEdnpaBMTI9qjVxk6mFVGVMZ1n0ySC3fjrkXCQQ8O9fMdt9TxPJRKyjiTiTjvO9700jKjmyl+hPBinQ==",
+      "path": "swashbuckle.aspnetcore.annotations/6.5.0",
+      "hashPath": "swashbuckle.aspnetcore.annotations.6.5.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore.Swagger/6.5.0": {
       "type": "package",
@@ -1049,55 +695,6 @@
       "sha512": "sha512-OvbvxX+wL8skxTBttcBsVxdh73Fag4xwqEU2edh4JMn7Ws/xJHnY/JB1e9RoCb6XpDxUF3hD9A0Z1lEUx40Pfw==",
       "path": "swashbuckle.aspnetcore.swaggerui/6.5.0",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
-    },
-    "System.CodeDom/4.4.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-2sCCb7doXEwtYAbqzbF/8UAeDRMNmPaQbU2q50Psg1J9KzumyVVCgKQY8s53WIPTufNT0DpSe9QRvVjOzfDWBA==",
-      "path": "system.codedom/4.4.0",
-      "hashPath": "system.codedom.4.4.0.nupkg.sha512"
-    },
-    "System.Composition/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-d7wMuKQtfsxUa7S13tITC8n1cQzewuhD5iDjZtK2prwFfKVzdYtgrTHgjaV03Zq7feGQ5gkP85tJJntXwInsJA==",
-      "path": "system.composition/6.0.0",
-      "hashPath": "system.composition.6.0.0.nupkg.sha512"
-    },
-    "System.Composition.AttributedModel/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-WK1nSDLByK/4VoC7fkNiFuTVEiperuCN/Hyn+VN30R+W2ijO1d0Z2Qm0ScEl9xkSn1G2MyapJi8xpf4R8WRa/w==",
-      "path": "system.composition.attributedmodel/6.0.0",
-      "hashPath": "system.composition.attributedmodel.6.0.0.nupkg.sha512"
-    },
-    "System.Composition.Convention/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-XYi4lPRdu5bM4JVJ3/UIHAiG6V6lWWUlkhB9ab4IOq0FrRsp0F4wTyV4Dj+Ds+efoXJ3qbLqlvaUozDO7OLeXA==",
-      "path": "system.composition.convention/6.0.0",
-      "hashPath": "system.composition.convention.6.0.0.nupkg.sha512"
-    },
-    "System.Composition.Hosting/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-w/wXjj7kvxuHPLdzZ0PAUt++qJl03t7lENmb2Oev0n3zbxyNULbWBlnd5J5WUMMv15kg5o+/TCZFb6lSwfaUUQ==",
-      "path": "system.composition.hosting/6.0.0",
-      "hashPath": "system.composition.hosting.6.0.0.nupkg.sha512"
-    },
-    "System.Composition.Runtime/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-qkRH/YBaMPTnzxrS5RDk1juvqed4A6HOD/CwRcDGyPpYps1J27waBddiiq1y93jk2ZZ9wuA/kynM+NO0kb3PKg==",
-      "path": "system.composition.runtime/6.0.0",
-      "hashPath": "system.composition.runtime.6.0.0.nupkg.sha512"
-    },
-    "System.Composition.TypedParts/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-iUR1eHrL8Cwd82neQCJ00MpwNIBs4NZgXzrPqx8NJf/k4+mwBO0XCRmHYJT4OLSwDDqh5nBLJWkz5cROnrGhRA==",
-      "path": "system.composition.typedparts/6.0.0",
-      "hashPath": "system.composition.typedparts.6.0.0.nupkg.sha512"
     },
     "System.Configuration.ConfigurationManager/6.0.1": {
       "type": "package",
@@ -1156,6 +753,11 @@
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
     "DoroTech.BookStore.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DoroTech.BookStore.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
