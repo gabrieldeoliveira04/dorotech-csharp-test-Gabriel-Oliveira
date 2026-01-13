@@ -1,0 +1,31 @@
+## Build results
+bin/
+obj/
+
+## Visual Studio / VS Code
+.vs/
+.vscode/
+
+## Rider / JetBrains
+.idea/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Logs
+*.log
+
+## Environment / secrets
+.env
+appsettings.Development.json
+appsettings.Local.json
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## EF Core
+Migrations/*.Designer.cs
