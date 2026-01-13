@@ -101,8 +101,18 @@ using (var scope = app.Services.CreateScope())
     DatabaseSeeder.Seed(context);
 }
 
+app.UseRouting();
+
 app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwaggerUI(c =>
+{
+    c.RoutePrefix = "swagger";
+});
+
+app.MapGet("/", () => Results.Redirect("/swagger"));
+
+app.MapControllers();
+
 
 app.UseHttpsRedirection();
 
