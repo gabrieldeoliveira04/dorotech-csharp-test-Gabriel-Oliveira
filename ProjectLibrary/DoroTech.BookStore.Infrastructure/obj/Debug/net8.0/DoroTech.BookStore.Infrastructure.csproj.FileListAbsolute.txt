@@ -10,9 +10,9 @@
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Infrastructure/obj/Debug/net8.0/DoroTech.BookStore.Infrastructure.AssemblyInfo.cs
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Infrastructure/obj/Debug/net8.0/DoroTech.BookStore.Infrastructure.csproj.CoreCompileInputs.cache
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Infrastructure/obj/Debug/net8.0/DoroTech.BookStore.Infrastructure.sourcelink.json
-/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Infrastructure/obj/Debug/net8.0/DoroTech.2A9C3C30.Up2Date
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Infrastructure/obj/Debug/net8.0/DoroTech.BookStore.Infrastructure.dll
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Infrastructure/obj/Debug/net8.0/refint/DoroTech.BookStore.Infrastructure.dll
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Infrastructure/obj/Debug/net8.0/DoroTech.BookStore.Infrastructure.pdb
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Infrastructure/obj/Debug/net8.0/DoroTech.BookStore.Infrastructure.genruntimeconfig.cache
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Infrastructure/obj/Debug/net8.0/ref/DoroTech.BookStore.Infrastructure.dll
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Infrastructure/obj/Debug/net8.0/DoroTech.BookStore.Infrastructure.csproj.CopyComplete

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "38UkoMMTRII=",
+  "dgSpecHash": "ouVcA0LZYEuDz6up835ln/JmZraa5MYFw5LNCVlRwrvMN6S0R89JkQFIyg9bnuXXI3Ewqxm34CIm0eVjPRXZxg==",
   "success": true,
   "projectFilePath": "/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Domain/DoroTech.BookStore.Domain.csproj",
   "expectedPackageFiles": [
@@ -44,9 +44,7 @@
     "/home/codespace/.nuget/packages/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg.sha512",
     "/home/codespace/.nuget/packages/system.text.encodings.web/8.0.0/system.text.encodings.web.8.0.0.nupkg.sha512",
     "/home/codespace/.nuget/packages/system.text.json/8.0.0/system.text.json.8.0.0.nupkg.sha512",
-    "/home/codespace/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512",
-    "/home/codespace/.nuget/packages/microsoft.netcore.app.ref/8.0.22/microsoft.netcore.app.ref.8.0.22.nupkg.sha512",
-    "/home/codespace/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.22/microsoft.aspnetcore.app.ref.8.0.22.nupkg.sha512"
+    "/home/codespace/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

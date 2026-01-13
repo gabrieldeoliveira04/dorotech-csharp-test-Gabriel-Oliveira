@@ -1,1 +1,11 @@
-{"Version":1,"Hash":"6V3C0lP8NeVsnM8sqmO/Q61FEq/LVZhFz2wGdlSRNWA=","Source":"DoroTech.BookStore.API","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "0xzHNt2iYCZ6km0GNRAXDATF+1kGyq+AEXuoA6TdJxg=",
+  "Source": "DoroTech.BookStore.API",
+  "BasePath": "_content/DoroTech.BookStore.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -15,18 +15,19 @@ namespace DoroTech.BookStore.Infrastructure.Repositories
         }
 
         public async Task<IEnumerable<Book>> GetAllAsync(
-            int page,
-            int pageSize,
-            string? title)
+    int page,
+    int pageSize,
+    string? title)
         {
+            page = page <= 0 ? 1 : page;
+            pageSize = pageSize <= 0 ? 10 : pageSize;
+
             var query = _context.Books.AsNoTracking();
 
             if (!string.IsNullOrWhiteSpace(title))
             {
-                var normalized = title.ToLower();
-
                 query = query.Where(b =>
-                    b.Title.ToLower().Contains(normalized));
+                    EF.Functions.ILike(b.Title, $"%{title}%"));
             }
 
             return await query
@@ -35,6 +36,7 @@ namespace DoroTech.BookStore.Infrastructure.Repositories
                 .Take(pageSize)
                 .ToListAsync();
         }
+
 
         public Task<Book?> GetByIdAsync(Guid id)
         {
