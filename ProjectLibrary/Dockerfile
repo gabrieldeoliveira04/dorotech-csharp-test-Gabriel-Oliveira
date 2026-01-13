@@ -17,13 +17,15 @@ RUN dotnet restore DoroTech.BookStore.Infrastructure/DoroTech.BookStore.Infrastr
 
 # Copia tudo e publica
 COPY . .
-WORKDIR /app/ProjectLibrary/DoroTech.BookStore.API
-RUN dotnet publish -c Release -o out
+WORKDIR /app/DoroTech.BookStore.API
+RUN dotnet publish DoroTech.BookStore.API.csproj -c Release -o out
+ 
 
 # Etapa 2: runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
-COPY --from=build /app/ProjectLibrary/DoroTech.BookStore.API/out ./
+COPY --from=build /app/DoroTech.BookStore.API/out ./
+
 
 # Porta exposta
 EXPOSE 80
