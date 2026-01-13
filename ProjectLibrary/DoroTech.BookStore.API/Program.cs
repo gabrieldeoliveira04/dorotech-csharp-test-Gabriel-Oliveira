@@ -13,10 +13,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddScoped<BookService>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString =
+    builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? Environment.GetEnvironmentVariable("POSTGRES_CONNECTION_STRING");
+
+if (string.IsNullOrWhiteSpace(connectionString))
+{
+    throw new InvalidOperationException("Connection string not configured.");
+}
 builder.Services.AddDbContext<BookStoreDbContext>(options =>
     options.UseNpgsql(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
+        builder.Configuration.GetConnectionString(connectionString),
         b => b.MigrationsAssembly("DoroTech.BookStore.Infrastructure")
     )
 );
