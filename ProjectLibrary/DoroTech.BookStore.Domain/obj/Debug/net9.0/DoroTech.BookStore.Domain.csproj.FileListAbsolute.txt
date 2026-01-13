@@ -1,6 +1,8 @@
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Domain/bin/Debug/net9.0/DoroTech.BookStore.Domain.deps.json
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Domain/bin/Debug/net9.0/DoroTech.BookStore.Domain.runtimeconfig.json
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Domain/bin/Debug/net9.0/DoroTech.BookStore.Domain.dll
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Domain/bin/Debug/net9.0/DoroTech.BookStore.Domain.pdb
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Domain/obj/Debug/net9.0/DoroTech.BookStore.Domain.csproj.AssemblyReference.cache
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Domain/obj/Debug/net9.0/DoroTech.BookStore.Domain.GeneratedMSBuildEditorConfig.editorconfig
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Domain/obj/Debug/net9.0/DoroTech.BookStore.Domain.AssemblyInfoInputs.cache
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Domain/obj/Debug/net9.0/DoroTech.BookStore.Domain.AssemblyInfo.cs
@@ -9,4 +11,5 @@
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Domain/obj/Debug/net9.0/DoroTech.BookStore.Domain.dll
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Domain/obj/Debug/net9.0/refint/DoroTech.BookStore.Domain.dll
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Domain/obj/Debug/net9.0/DoroTech.BookStore.Domain.pdb
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Domain/obj/Debug/net9.0/DoroTech.BookStore.Domain.genruntimeconfig.cache
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Domain/obj/Debug/net9.0/ref/DoroTech.BookStore.Domain.dll

@@ -1,38 +1,36 @@
-## Build results
+# Build results
 bin/
 obj/
 
-##sqlite database files
+# SQLite files (não vamos mais usar)
 *.db
 *.sqlite
 *.sqlite3
 
-# Publish
+# Publish output
 publish/
 out/
 
-
-## Visual Studio / VS Code
+# VS / JetBrains
 .vs/
 .vscode/
-
-## Rider / JetBrains
 .idea/
 
-## User-specific files
+# User-specific
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
 
-## Logs
+# Logs
 *.log
 
-## Environment / secrets
+# Environment / secrets
 .env
 appsettings.Development.json
 appsettings.Local.json
 
-## OS files
+# OS files
 .DS_Store
 Thumbs.db
+

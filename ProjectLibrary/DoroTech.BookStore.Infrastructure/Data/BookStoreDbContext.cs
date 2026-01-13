@@ -13,8 +13,9 @@ namespace DoroTech.BookStore.Infrastructure.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Book>()
-            .HasIndex(b => new { b.Title, b.Author })
-            .IsUnique();
+                .HasIndex(b => new { b.Title, b.Author })
+                .IsUnique();
         }
     }
 }
+

@@ -13,8 +13,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddScoped<BookService>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<BookStoreDbContext>(options =>
-    options.UseSqlite(
+    options.UseNpgsql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
         b => b.MigrationsAssembly("DoroTech.BookStore.Infrastructure")
     )
@@ -74,17 +75,23 @@ builder.Services.AddSwaggerGen(c =>
             Array.Empty<string>()
         }
     });
-     // Exibir exemplos e descrições de parâmetros
+    // Exibir exemplos e descrições de parâmetros
     c.DescribeAllParametersInCamelCase();
 });
 
 var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<BookStoreDbContext>();
+    db.Database.Migrate();
+}
 
-    using (var scope = app.Services.CreateScope())
-    {
-        var context = scope.ServiceProvider.GetRequiredService<BookStoreDbContext>();
-        DatabaseSeeder.Seed(context);
-    }
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<BookStoreDbContext>();
+    DatabaseSeeder.Seed(context);
+}
 
 app.UseSwagger();
 app.UseSwaggerUI();
