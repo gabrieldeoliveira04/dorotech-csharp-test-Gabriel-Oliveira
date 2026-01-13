@@ -4,9 +4,10 @@ WORKDIR /app
 
 # Copia csproj e restaura dependências
 COPY *.sln .
-COPY ProjectLibrary/DoroTech.BookStore.API/*.csproj ./ProjectLibrary/DoroTech.BookStore.API/
-COPY ProjectLibrary/DoroTech.BookStore.Application/*.csproj ./ProjectLibrary/DoroTech.BookStore.Application/
-COPY ProjectLibrary/DoroTech.BookStore.Domain/*.csproj ./ProjectLibrary/DoroTech.BookStore.Domain/
+COPY DoroTech.BookStore.API/*.csproj ./DoroTech.BookStore.API/
+COPY DoroTech.BookStore.Application/*.csproj ./DoroTech.BookStore.Application/
+COPY DoroTech.BookStore.Domain/*.csproj ./DoroTech.BookStore.Domain/
+COPY DoroTech.BookStore.Infrastructure/*.csproj ./DoroTech.BookStore.Infrastructure/
 RUN dotnet restore
 
 # Copia tudo e publica
