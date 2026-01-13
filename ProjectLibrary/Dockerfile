@@ -2,13 +2,18 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copia csproj e restaura dependências
-COPY *.sln .
+# Copia os projetos
 COPY DoroTech.BookStore.API/*.csproj ./DoroTech.BookStore.API/
 COPY DoroTech.BookStore.Application/*.csproj ./DoroTech.BookStore.Application/
 COPY DoroTech.BookStore.Domain/*.csproj ./DoroTech.BookStore.Domain/
 COPY DoroTech.BookStore.Infrastructure/*.csproj ./DoroTech.BookStore.Infrastructure/
-RUN dotnet restore
+
+# Restore individual
+RUN dotnet restore DoroTech.BookStore.API/DoroTech.BookStore.API.csproj
+RUN dotnet restore DoroTech.BookStore.Application/DoroTech.BookStore.Application.csproj
+RUN dotnet restore DoroTech.BookStore.Domain/DoroTech.BookStore.Domain.csproj
+RUN dotnet restore DoroTech.BookStore.Infrastructure/DoroTech.BookStore.Infrastructure.csproj
+
 
 # Copia tudo e publica
 COPY . .
