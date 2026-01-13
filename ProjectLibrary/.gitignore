@@ -2,6 +2,16 @@
 bin/
 obj/
 
+##sqlite database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Publish
+publish/
+out/
+
+
 ## Visual Studio / VS Code
 .vs/
 .vscode/
@@ -26,6 +36,3 @@ appsettings.Local.json
 ## OS files
 .DS_Store
 Thumbs.db
-
-## EF Core
-Migrations/*.Designer.cs

@@ -43,10 +43,10 @@ namespace DoroTech.BookStore.Application.Services
 
         // Criação de livro
         public async Task<Guid> CreateAsync(
-    string title,
-    string author,
-    decimal price,
-    int stock)
+        string title,
+        string author,
+        decimal price,
+        int stock)
         {
             _logger.LogInformation(
                 "Tentativa de criação de livro: {Title} - {Author}",
@@ -82,25 +82,31 @@ namespace DoroTech.BookStore.Application.Services
             decimal price,
             int stock)
         {
+            _logger.LogInformation("Atualizando livro | Id: {BookId}", id);
             var book = await _repository.GetByIdAsync(id);
 
-            if (book == null)
+            if (book == null){
+            _logger.LogWarning("Livro não encontrado| Id: {BookId}", id);
                 return false;
-
+            }
             book.Update(title, author, price, stock);
             await _repository.UpdateAsync(book);
 
+            _logger.LogInformation("Livro atualizado com sucesso | Id: {BookId}", id);
             return true;
         }
 
         // Exclusão
         public async Task<bool> DeleteAsync(Guid id)
         {
+             _logger.LogInformation("Excluindo livro| Id: {BookId}", id);
             var book = await _repository.GetByIdAsync(id);
 
-            if (book == null)
+            if (book == null){
+                _logger.LogWarning("Livro não encontrado | Id: {BookId}", id);
                 return false;
-
+            }
+            _logger.LogInformation("Livro deletado com sucesso | Id: {BookId}", id);
             await _repository.DeleteAsync(book);
             return true;
         }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using DoroTech.BookStore.Application.Services;
 using DoroTech.BookStore.Domain.Entities;
 using DoroTech.BookStore.Application.DTOs;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace DoroTech.BookStore.API.Controllers
 {
@@ -21,6 +22,10 @@ namespace DoroTech.BookStore.API.Controllers
         [HttpGet]
         [AllowAnonymous]
         [ProducesResponseType(typeof(IEnumerable<BookResponse>), StatusCodes.Status200OK)]
+        [SwaggerOperation(
+        Summary = "Lista livros",
+        Description = "Retorna livros paginados, opcionalmente filtrados por título (case-insensitive)."
+        )]
         public async Task<IActionResult> GetAll(
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 10,
@@ -74,15 +79,25 @@ namespace DoroTech.BookStore.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Update(Guid id, [FromBody] BookRequest request)
         {
-            var updated = await _service.UpdateAsync(
-                id,
-                request.Title,
-                request.Author,
-                request.Price,
-                request.Stock
-            );
+            if (!ModelState.IsValid)
+                return ValidationProblem(ModelState);
 
-            return updated ? NoContent() : NotFound("Livro não encontrado.");
+            try
+            {
+                var updated = await _service.UpdateAsync(
+                    id,
+                    request.Title,
+                    request.Author,
+                    request.Price,
+                    request.Stock
+                );
+
+                return updated ? NoContent() : NotFound("Livro não encontrado.");
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Conflict(new { error = ex.Message });
+            }
         }
 
         //Deleta um livro pelo ID (somente admin)

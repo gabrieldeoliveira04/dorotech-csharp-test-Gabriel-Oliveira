@@ -43,15 +43,15 @@ namespace DoroTech.BookStore.Infrastructure.Repositories
                 .FirstOrDefaultAsync(b => b.Id == id);
         }
 
-        public Task<bool> ExistsAsync(string title, string author)
+        public async Task<bool> ExistsAsync(string title, string author, Guid? ignoreId = null)
         {
-            var normalizedTitle = title.ToLower();
-            var normalizedAuthor = author.ToLower();
-
-            return _context.Books.AnyAsync(b =>
-                b.Title.ToLower() == normalizedTitle &&
-                b.Author.ToLower() == normalizedAuthor);
+            return await _context.Books.AnyAsync(b =>
+                b.Title == title &&
+                b.Author == author &&
+                (!ignoreId.HasValue || b.Id != ignoreId.Value)
+            );
         }
+
 
         public async Task AddAsync(Book book)
         {
@@ -64,6 +64,7 @@ namespace DoroTech.BookStore.Infrastructure.Repositories
             _context.Books.Update(book);
             await _context.SaveChangesAsync();
         }
+
 
         public async Task DeleteAsync(Book book)
         {

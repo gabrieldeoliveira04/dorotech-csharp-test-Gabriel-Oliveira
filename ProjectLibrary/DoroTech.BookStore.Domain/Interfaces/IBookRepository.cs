@@ -7,7 +7,7 @@ namespace DoroTech.BookStore.Domain.Interfaces
          Task<IEnumerable<Book>> GetAllAsync(int page, int pageSize, string? title);
         Task<Book?> GetByIdAsync(Guid id);
 
-        Task<bool> ExistsAsync(string title, string author);
+        Task<bool> ExistsAsync(string title, string author, Guid? ignoreId = null);
 
         Task AddAsync(Book book);
         Task UpdateAsync(Book book);

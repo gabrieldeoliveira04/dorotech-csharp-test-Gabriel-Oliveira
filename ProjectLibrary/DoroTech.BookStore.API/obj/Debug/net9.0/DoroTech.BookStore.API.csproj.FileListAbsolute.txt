@@ -161,3 +161,6 @@
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/obj/Debug/net9.0/DoroTech.BookStore.API.pdb
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/obj/Debug/net9.0/DoroTech.BookStore.API.genruntimeconfig.cache
 /workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/obj/Debug/net9.0/ref/DoroTech.BookStore.API.dll
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
+/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.API/bin/Debug/net9.0/System.Diagnostics.DiagnosticSource.dll

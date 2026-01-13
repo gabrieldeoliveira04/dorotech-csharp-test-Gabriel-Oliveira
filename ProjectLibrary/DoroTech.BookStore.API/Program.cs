@@ -46,7 +46,8 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "DoroTech BookStore API",
-        Version = "v1"
+        Version = "v1",
+        Description = "API para gerenciamento de livros, com autenticação JWT para administração."
     });
 
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -73,9 +74,17 @@ builder.Services.AddSwaggerGen(c =>
             Array.Empty<string>()
         }
     });
+     // Exibir exemplos e descrições de parâmetros
+    c.DescribeAllParametersInCamelCase();
 });
 
 var app = builder.Build();
+
+    using (var scope = app.Services.CreateScope())
+    {
+        var context = scope.ServiceProvider.GetRequiredService<BookStoreDbContext>();
+        DatabaseSeeder.Seed(context);
+    }
 
 app.UseSwagger();
 app.UseSwaggerUI();

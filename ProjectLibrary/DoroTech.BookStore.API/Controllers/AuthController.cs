@@ -4,6 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using DoroTech.BookStore.API.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace DoroTech.BookStore.API.Controllers;
 
@@ -22,8 +23,12 @@ public class AuthController : ControllerBase
     /// <param name="request">Credenciais do administrador</param>
     /// <returns>Token JWT</returns>
     [HttpPost("login")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(object))]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized, Type = typeof(ProblemDetails))]
+    [SwaggerOperation(
+    Summary = "Login do administrador",
+    Description = "Recebe usuário e senha, valida e retorna token JWT válido por 2 horas"
+)]
     public IActionResult Login([FromBody] LoginRequest request)
     {
         var adminUser = _configuration["Jwt:AdminUser"];
@@ -32,7 +37,7 @@ public class AuthController : ControllerBase
 
         if (request.Username != adminUser || request.Password != adminPassword)
             return Unauthorized("Usuário ou senha inválidos");
-            /// retorno de erro em caso de senha ou usuario inválido, Login: Usuário: "admin",Senha: "123456"
+        /// retorno de erro em caso de senha ou usuario inválido, Login: Usuário: "admin",Senha: "123456"
 
         var claims = new[]
         {

@@ -2,6 +2,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DoroTech.BookStore.Application.DTOs
 {
+    /// <summary>
+    /// Modelo para criação ou atualização de um livro.
+    /// </summary>
     public class BookRequest
     {
         [Required(ErrorMessage = "O título é obrigatório.")]
@@ -18,6 +21,5 @@ namespace DoroTech.BookStore.Application.DTOs
         [Range(0, int.MaxValue, ErrorMessage = "O estoque não pode ser negativo.")]
         public int Stock { get; set; }
     }
-
 }
 
