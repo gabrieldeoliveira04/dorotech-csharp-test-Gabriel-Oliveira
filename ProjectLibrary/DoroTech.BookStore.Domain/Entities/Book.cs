@@ -15,6 +15,9 @@ namespace DoroTech.BookStore.Domain.Entities
         {
             if (string.IsNullOrWhiteSpace(title))
                 throw new ArgumentException("Título inválido.");
+            if (string.IsNullOrWhiteSpace(author))
+                throw new ArgumentException("Autor inválido.");
+
 
             if (price <= 0)
                 throw new ArgumentException("Preço inválido.");
