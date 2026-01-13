@@ -1,28 +1,38 @@
 using DoroTech.BookStore.Domain.Interfaces;
 using DoroTech.BookStore.Domain.Entities;
 using DoroTech.BookStore.Application.DTOs;
+using Microsoft.Extensions.Logging;
 
 namespace DoroTech.BookStore.Application.Services
 {
     public class BookService
     {
         private readonly IBookRepository _repository;
+        private readonly ILogger<BookService> _logger;
 
-        public BookService(IBookRepository repository)
+        public BookService(
+        IBookRepository repository,
+        ILogger<BookService> logger)
         {
             _repository = repository;
+            _logger = logger;
         }
 
         // Lista livros com paginação e filtro por título (parcial, case-insensitive)
         public async Task<IEnumerable<BookResponse>> GetAllAsync(
-            int page,
-            int pageSize,
-            string? title)
+         int page,
+         int pageSize,
+         string? title)
         {
+            _logger.LogInformation(
+                "Buscando livros - Página: {Page}, PageSize: {PageSize}, Filtro: {Title}",
+                page, pageSize, title);
+
             var books = await _repository.GetAllAsync(page, pageSize, title);
 
             return books.Select(MapToResponse);
         }
+
 
         // Busca por ID
         public async Task<BookResponse?> GetByIdAsync(Guid id)
@@ -31,33 +41,38 @@ namespace DoroTech.BookStore.Application.Services
             return book == null ? null : MapToResponse(book);
         }
 
-        // Busca por título (parcial)
-        public async Task<BookResponse?> GetByTitleAsync(string title)
-        {
-            if (string.IsNullOrWhiteSpace(title))
-                return null;
-
-            var book = await _repository.GetByTitleAsync(title);
-            return book == null ? null : MapToResponse(book);
-        }
-
         // Criação de livro
         public async Task<Guid> CreateAsync(
-            string title,
-            string author,
-            decimal price,
-            int stock)
+    string title,
+    string author,
+    decimal price,
+    int stock)
         {
-            var existing = await _repository.GetByTitleAsync(title);
+            _logger.LogInformation(
+                "Tentativa de criação de livro: {Title} - {Author}",
+                title, author);
 
-            if (existing != null)
+            var exists = await _repository.ExistsAsync(title, author);
+
+            if (exists)
+            {
+                _logger.LogWarning(
+                    "Livro já existente: {Title} - {Author}",
+                    title, author);
+
                 throw new InvalidOperationException("Livro já cadastrado.");
+            }
 
             var book = new Book(title, author, price, stock);
             await _repository.AddAsync(book);
 
+            _logger.LogInformation(
+                "Livro criado com sucesso. Id: {BookId}",
+                book.Id);
+
             return book.Id;
         }
+
 
         // Atualização
         public async Task<bool> UpdateAsync(

@@ -13,6 +13,12 @@ namespace DoroTech.BookStore.Domain.Entities
 
         public Book(string title, string author, decimal price, int stock)
         {
+            if (string.IsNullOrWhiteSpace(title))
+                throw new ArgumentException("Título inválido.");
+
+            if (price <= 0)
+                throw new ArgumentException("Preço inválido.");
+
             Id = Guid.NewGuid();
             Title = title;
             Author = author;
@@ -22,10 +28,20 @@ namespace DoroTech.BookStore.Domain.Entities
 
         public void Update(string title, string author, decimal price, int stock)
         {
+            if (string.IsNullOrWhiteSpace(title))
+                throw new ArgumentException("Título inválido.");
+
+            if (price <= 0)
+                throw new ArgumentException("Preço inválido.");
+
+            if (stock < 0)
+                throw new ArgumentException("Estoque inválido.");
+
             Title = title;
             Author = author;
             Price = price;
             Stock = stock;
         }
+
     }
 }

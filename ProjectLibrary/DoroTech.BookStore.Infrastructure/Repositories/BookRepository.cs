@@ -23,10 +23,10 @@ namespace DoroTech.BookStore.Infrastructure.Repositories
 
             if (!string.IsNullOrWhiteSpace(title))
             {
-                var normalizedTitle = title.ToLower();
+                var normalized = title.ToLower();
 
                 query = query.Where(b =>
-                    b.Title.ToLower().Contains(normalizedTitle));
+                    b.Title.ToLower().Contains(normalized));
             }
 
             return await query
@@ -43,14 +43,14 @@ namespace DoroTech.BookStore.Infrastructure.Repositories
                 .FirstOrDefaultAsync(b => b.Id == id);
         }
 
-        public Task<Book?> GetByTitleAsync(string title)
+        public Task<bool> ExistsAsync(string title, string author)
         {
             var normalizedTitle = title.ToLower();
+            var normalizedAuthor = author.ToLower();
 
-            return _context.Books
-                .AsNoTracking()
-                .FirstOrDefaultAsync(b =>
-                    b.Title.ToLower().Contains(normalizedTitle));
+            return _context.Books.AnyAsync(b =>
+                b.Title.ToLower() == normalizedTitle &&
+                b.Author.ToLower() == normalizedAuthor);
         }
 
         public async Task AddAsync(Book book)
@@ -72,4 +72,5 @@ namespace DoroTech.BookStore.Infrastructure.Repositories
         }
     }
 }
+
 

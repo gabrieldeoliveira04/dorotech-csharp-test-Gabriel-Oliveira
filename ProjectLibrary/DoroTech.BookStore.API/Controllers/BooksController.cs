@@ -44,21 +44,28 @@ namespace DoroTech.BookStore.API.Controllers
         //Cria um novo livro(somente admin)
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Create([FromBody] BookRequest request)
         {
-            var id = await _service.CreateAsync(
-                request.Title,
-                request.Author,
-                request.Price,
-                request.Stock
-            );
             if (!ModelState.IsValid)
                 return ValidationProblem(ModelState);
 
-            return CreatedAtAction(nameof(GetById), new { id }, null);
+            try
+            {
+                var id = await _service.CreateAsync(
+                    request.Title,
+                    request.Author,
+                    request.Price,
+                    request.Stock
+                );
+
+                return CreatedAtAction(nameof(GetById), new { id }, null);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
         }
+
 
         //Atualiza um livro existente (somente admin)
         [HttpPut("{id:guid}")]
