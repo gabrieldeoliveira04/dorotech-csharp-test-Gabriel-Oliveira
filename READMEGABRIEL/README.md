@@ -6,7 +6,7 @@ Projeto criado como parte de um desafio técnico, com foco em organização de c
 
 Tecnologias Utilizadas
 
-.NET 7
+.NET 8
 
 ASP.NET Core Web API
 
@@ -117,13 +117,6 @@ https://dorotech-csharp-test-gabriel-oliveira.onrender.com/swagger/index.html
 Ao acessar a raiz (/), o usuário é redirecionado automaticamente para o Swagger.
 
 ▶️ Como rodar o projeto localmente
-Pré-requisitos
-
-.NET SDK 7
-
-PostgreSQL
-
-Variável de ambiente com connection string
 
 Passos
 cd ProjectLibrary
@@ -131,6 +124,8 @@ cd DoroTech.BookStore.API
 dotnet restore
 dotnet build
 dotnet run
+Login admin: admin
+senha admin: 123456
 
 
 A API estará disponível e abrirá diretamente no Swagger.

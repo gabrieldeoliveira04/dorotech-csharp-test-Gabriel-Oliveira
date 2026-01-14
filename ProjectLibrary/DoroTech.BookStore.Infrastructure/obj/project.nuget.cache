@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kNk+gao3M5At6bqiDPAnRM8lr6AsHM0tWpr4sGTtDXiNxsBrEqoYetucUBY0vbmdLDoOSB+qopCnQupmAsVNSw==",
+  "dgSpecHash": "8LjAPTKMxnY=",
   "success": true,
   "projectFilePath": "/workspaces/dorotech-csharp-test-Gabriel-Oliveira/ProjectLibrary/DoroTech.BookStore.Infrastructure/DoroTech.BookStore.Infrastructure.csproj",
   "expectedPackageFiles": [
