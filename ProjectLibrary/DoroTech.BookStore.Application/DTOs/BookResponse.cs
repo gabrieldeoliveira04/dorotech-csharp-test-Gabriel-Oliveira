@@ -20,7 +20,7 @@ namespace DoroTech.BookStore.Application.DTOs
             Author = author;
             Price = price;
             Stock = stock;
-        }
     }
+}
 }
 

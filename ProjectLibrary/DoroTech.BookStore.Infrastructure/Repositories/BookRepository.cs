@@ -14,6 +14,20 @@ namespace DoroTech.BookStore.Infrastructure.Repositories
             _context = context;
         }
 
+        public async Task<int> CountAsync(string? title)
+        {
+            var query = _context.Books.AsNoTracking();
+
+            if (!string.IsNullOrWhiteSpace(title))
+            {
+                query = query.Where(b =>
+                    EF.Functions.ILike(b.Title, $"%{title}%"));
+            }
+
+            return await query.CountAsync();
+        }
+
+
         public async Task<IEnumerable<Book>> GetAllAsync(
     int page,
     int pageSize,

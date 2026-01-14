@@ -4,7 +4,7 @@ namespace DoroTech.BookStore.Domain.Interfaces
 {
     public interface IBookRepository
     {
-         Task<IEnumerable<Book>> GetAllAsync(int page, int pageSize, string? title);
+        Task<IEnumerable<Book>> GetAllAsync(int page, int pageSize, string? title);
         Task<Book?> GetByIdAsync(Guid id);
 
         Task<bool> ExistsAsync(string title, string author, Guid? ignoreId = null);
@@ -12,5 +12,6 @@ namespace DoroTech.BookStore.Domain.Interfaces
         Task AddAsync(Book book);
         Task UpdateAsync(Book book);
         Task DeleteAsync(Book book);
+        Task<int> CountAsync(string? title);
     }
 }

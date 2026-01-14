@@ -19,19 +19,28 @@ namespace DoroTech.BookStore.Application.Services
         }
 
         // Lista livros com paginação e filtro por título (parcial, case-insensitive)
-        public async Task<IEnumerable<BookResponse>> GetAllAsync(
-         int page,
-         int pageSize,
-         string? title)
+        public async Task<PagedResult<BookResponse>> GetAllAsync(
+     int page,
+     int pageSize,
+     string? title)
         {
             _logger.LogInformation(
-                "Buscando livros - Página: {Page}, PageSize: {PageSize}, Filtro: {Title}",
+                "Buscando livros | Página: {Page}, PageSize: {PageSize}, Filtro: {Title}",
                 page, pageSize, title);
 
+            var totalItems = await _repository.CountAsync(title);
             var books = await _repository.GetAllAsync(page, pageSize, title);
 
-            return books.Select(MapToResponse);
+            return new PagedResult<BookResponse>
+            {
+                Page = page,
+                PageSize = pageSize,
+                TotalItems = totalItems,
+                TotalPages = (int)Math.Ceiling(totalItems / (double)pageSize),
+                Items = books.Select(MapToResponse)
+            };
         }
+
 
 
         // Busca por ID
@@ -85,8 +94,9 @@ namespace DoroTech.BookStore.Application.Services
             _logger.LogInformation("Atualizando livro | Id: {BookId}", id);
             var book = await _repository.GetByIdAsync(id);
 
-            if (book == null){
-            _logger.LogWarning("Livro não encontrado| Id: {BookId}", id);
+            if (book == null)
+            {
+                _logger.LogWarning("Livro não encontrado| Id: {BookId}", id);
                 return false;
             }
             book.Update(title, author, price, stock);
@@ -99,10 +109,11 @@ namespace DoroTech.BookStore.Application.Services
         // Exclusão
         public async Task<bool> DeleteAsync(Guid id)
         {
-             _logger.LogInformation("Excluindo livro| Id: {BookId}", id);
+            _logger.LogInformation("Excluindo livro| Id: {BookId}", id);
             var book = await _repository.GetByIdAsync(id);
 
-            if (book == null){
+            if (book == null)
+            {
                 _logger.LogWarning("Livro não encontrado | Id: {BookId}", id);
                 return false;
             }

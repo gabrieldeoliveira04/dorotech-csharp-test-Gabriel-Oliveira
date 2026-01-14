@@ -21,7 +21,7 @@ namespace DoroTech.BookStore.API.Controllers
         //Lista todos os livros com paginação e filtro
         [HttpGet]
         [AllowAnonymous]
-        [ProducesResponseType(typeof(IEnumerable<BookResponse>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(PagedResult<BookResponse>), StatusCodes.Status200OK)]
         [SwaggerOperation(
         Summary = "Lista livros",
         Description = "Retorna livros paginados, opcionalmente filtrados por título (case-insensitive)."

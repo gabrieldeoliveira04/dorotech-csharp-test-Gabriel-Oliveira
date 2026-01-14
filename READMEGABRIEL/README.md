@@ -120,10 +120,17 @@ Ao acessar a raiz (/), o usuário é redirecionado automaticamente para o Swagge
 
 Passos
 cd ProjectLibrary
+
 cd DoroTech.BookStore.API
+
+export ConnectionStrings__DefaultConnection="Host=localhost;Port=5432;Database=bookstore;Username=postgres;Password=postgres"
+
 dotnet restore
+
 dotnet build
+
 dotnet run
+
 Login admin: admin
 senha admin: 123456
 
