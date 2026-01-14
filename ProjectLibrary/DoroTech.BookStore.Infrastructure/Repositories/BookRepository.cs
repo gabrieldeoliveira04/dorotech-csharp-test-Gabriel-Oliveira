@@ -27,7 +27,6 @@ namespace DoroTech.BookStore.Infrastructure.Repositories
             return await query.CountAsync();
         }
 
-
         public async Task<IEnumerable<Book>> GetAllAsync(
     int page,
     int pageSize,
