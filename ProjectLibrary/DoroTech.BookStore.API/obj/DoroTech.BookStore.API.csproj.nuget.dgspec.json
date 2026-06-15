@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.122/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/opt/dotnet/8.0.101/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -176,7 +176,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.122/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/opt/dotnet/8.0.101/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -249,7 +249,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.122/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/opt/dotnet/8.0.101/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -326,7 +326,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.122/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/opt/dotnet/8.0.101/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

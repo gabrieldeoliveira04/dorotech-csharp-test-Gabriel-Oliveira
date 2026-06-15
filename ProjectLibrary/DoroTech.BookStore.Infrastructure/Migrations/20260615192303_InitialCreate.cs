@@ -15,11 +15,11 @@ namespace DoroTech.BookStore.Infrastructure.Migrations
                 name: "Books",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Title = table.Column<string>(type: "TEXT", nullable: false),
-                    Author = table.Column<string>(type: "TEXT", nullable: false),
-                    Price = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Stock = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Title = table.Column<string>(type: "text", nullable: false),
+                    Author = table.Column<string>(type: "text", nullable: false),
+                    Price = table.Column<decimal>(type: "numeric(18,2)", nullable: false),
+                    Stock = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,9 +27,9 @@ namespace DoroTech.BookStore.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Books_Title",
+                name: "IX_Books_Title_Author",
                 table: "Books",
-                column: "Title",
+                columns: new[] { "Title", "Author" },
                 unique: true);
         }
 
